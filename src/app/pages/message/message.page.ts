@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService, Message } from './../../services/message/message.service';
 import { LoadingController, NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
+
 
 @Component({
   selector: 'app-message',
@@ -12,15 +14,13 @@ export class MessagePage implements OnInit {
   message: Message = {
     userId: '',
     text: '',
-    date: null
+    date: new Date()
   }
 
-  //messageText: any;
-  //userId: any;
-  //public message: any = [];
   messageId: null;
   
-  constructor( private messageservice: MessageService, private loadingController: LoadingController, private route: ActivatedRoute ) { }
+  constructor( private messageservice: MessageService, private loadingController: LoadingController, private route: ActivatedRoute,
+     public afAuth: AngularFireAuth ) { }
 
   ngOnInit() {
   this.messageId = this.route.snapshot.params['id'];
@@ -43,6 +43,8 @@ async loadMessage(){
 
   async sendMessage() {
     const entreredMessage = (<HTMLInputElement>document.getElementById("input-text")).value;
+    this.message.date.getDate()
+    this.message.userId = this.afAuth.auth.currentUser.uid
     if(entreredMessage.trim().length <= 0){
         this.presentAlert();
     }else{
@@ -61,7 +63,6 @@ async loadMessage(){
         //this.nav.back('home');
       });
     }
-    this.message.date = new Date().toISOString();
     this.confirmAlert();
     }
     this.message.text = '';
@@ -87,13 +88,6 @@ async loadMessage(){
     document.body.appendChild(alert);
     return alert.present();
   }
-    /*this.db.collection('Messages/').push({
-      userId: this.userId,
-      text: this.messageText,
-      date: new Date().toISOString()
-    });
-    this.messageText = '';
-    */    
 
    remove(message){
     this.messageservice.removeMessage(message.id);

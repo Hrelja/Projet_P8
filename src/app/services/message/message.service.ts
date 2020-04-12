@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 export interface Message{
   userId: string,
   text: string,
-  date: string,
+  date: Date,
 }
 
 @Injectable({

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Register, RegisterService } from './../../services/register/register.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, NavController } from '@ionic/angular';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-register',

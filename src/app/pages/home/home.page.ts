@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'home',
@@ -11,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
   public folder: string;
-
+  
 
   constructor(private activatedRoute: ActivatedRoute, public afAuth: AngularFireAuth, public router: Router) {}
 
