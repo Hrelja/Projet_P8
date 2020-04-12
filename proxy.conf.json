@@ -1,0 +1,21 @@
+{
+    "/api": {
+      "target": "http://localhost:8100",
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "changeOrigin": true,
+      "logLevel": "debug"
+    },
+    "architect": {
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "Pa8:build",
+            "proxyConfig": "proxy.conf.json"
+          }
+        }
+    }
+}
+  

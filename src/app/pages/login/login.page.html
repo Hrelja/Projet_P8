@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/welcome"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-input required type="text" placeholder="Email" [(ngModel)]="login.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required type="password" placeholder="Password" [(ngModel)]="login.password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button fill="solid" expand="block" color="dark" (click)="log()">Login</ion-button>
+</ion-content>

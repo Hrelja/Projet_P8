@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/welcome"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              Complete Informations
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list lines="full">
+              <ion-item>
+                <ion-input required type="text" id="input-username" placeholder="Username" [(ngModel)]="register.username"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input required type="password" id="input-password" placeholder="Password" [(ngModel)]="register.password"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input required type="password" id="input-confirm-password" placeholder="Confirm password" [(ngModel)]="register.confirmPassword"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input required type="text" id="input-name" placeholder="Name" [(ngModel)]="register.name"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input required type="text" id="input-company" placeholder="Company" [(ngModel)]="register.comapny"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input required type="text" id="input-email" placeholder="Email" [(ngModel)]="register.email"></ion-input>
+              </ion-item>
+              </ion-list>
+              <ion-button fill="outline" color="tertiary" (click)="clear()" size="small" id="btn-cancel">
+                <ion-icon slot="end" name="close"></ion-icon>Clear</ion-button>
+              <ion-button expand="full" id="btn-confirm" (click)="saveRegister()">Register</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

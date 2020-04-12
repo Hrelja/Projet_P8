@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar olor="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Message</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-list>
+      <ng-container *ngIf="!messages || messages.length == 0">
+        <div *ngFor="let n of [0,1,2]" padding>
+        </div>
+      </ng-container>
+
+  <ion-item-sliding *ngFor="let message of messages">
+    <ion-item lines="inset" button [routerLink]="['/message', message.id]">
+      <ion-label>
+        {{ message.text }}
+      </ion-label>
+    </ion-item>
+    <ion-item-options side="end">
+    <ion-item-option (click)="remove(item)" color="secondary">
+      Delete
+      <ion-icon name="checkmark" slot="end"></ion-icon>
+    </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+  </ion-list>
+</ion-content>
+
+
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10" class="input">
+        <ion-input id="input-text" [(ngModel)]="message.text" placeholder="Enter message" type="text"></ion-input>
+      </ion-col>
+      <ion-col size="2" class="send-col">
+        <ion-button shape="full" (click)="sendMessage()">
+          <ion-icon name="paper-plane"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

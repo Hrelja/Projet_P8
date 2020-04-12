@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/homeform"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              Complete Informations
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list lines="full">
+              <ion-item>
+                <ion-input required type="text" id="input-article" placeholder="Article" [(ngModel)]="form.article"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input required type="number" id="input-quantity" placeholder="Quantity" [(ngModel)]="form.quantity"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input required type="number" id="input-price" placeholder="Price By Unit" [(ngModel)]="form.price"></ion-input>
+              </ion-item>
+              </ion-list>
+              <ion-button fill="outline" color="tertiary" (click)="clear()" size="small" id="btn-cancel">
+                <ion-icon slot="end" name="close"></ion-icon>Clear</ion-button>
+              <ion-button expand="full" id="btn-confirm" (click)="saveForm()">Save</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
